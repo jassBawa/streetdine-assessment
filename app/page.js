@@ -10,8 +10,8 @@ export default function Home() {
           <span className="text-[#00C2FF] ml-2 ">Spectacle</span>
         </h1>
         <p className="font-gafata">
-          Unveiling SpaceX's Cosmic Odyssey: Witness the Universe's Unfolding in
-          Every Launch!
+          Unveiling SpaceX&apos;s Cosmic Odyssey: Witness the Universe&apos;s
+          Unfolding in Every Launch!
         </p>
 
         <div className="absolute left-32 z-10 h-48 w-48 bg-[#00FFB2] rounded-full blur-[120px]" />
