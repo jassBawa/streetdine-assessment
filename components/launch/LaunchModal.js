@@ -42,6 +42,7 @@ function LaunchModal() {
           <div className="flex items-stretch bg-[#101010]/90 max-w-3xl w-full rounded-lg overflow-hidden transition-all shadow-2xl backdrop-blur-xl">
             <div className="card__image relative w-full ">
               <Image
+                alt="Spaceship image"
                 fill
                 src={"/images/spaceshipImage.jpeg"}
                 className="absolute h-full w-full object-cover "
