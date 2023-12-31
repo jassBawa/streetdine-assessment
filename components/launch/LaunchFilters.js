@@ -3,13 +3,13 @@ import {
   filterPastLaunches,
   filterUpcomingLaunches,
   showAllLaunches,
-} from "@/lib/slices/LaunchesSlice";
+} from "@/lib/slices/launchesSlice";
 import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 
-function LaunchFilters() {
+const LaunchFilters = () => {
   const { data: session } = useSession();
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -100,6 +100,6 @@ function LaunchFilters() {
       </div>
     </>
   );
-}
+};
 
 export default LaunchFilters;

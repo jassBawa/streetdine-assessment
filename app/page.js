@@ -1,6 +1,7 @@
 "use client";
-import LaunchCards from "@/components/Launch/LaunchCards";
-import LaunchFilters from "@/components/Launch/LaunchFilters";
+
+import LaunchFilters from "@/components/launch/LaunchFilters";
+import LaunchList from "@/components/launch/LaunchList";
 import { useSession } from "next-auth/react";
 
 export default function Home() {
@@ -12,7 +13,9 @@ export default function Home() {
   return (
     <main className="">
       <section className="relative text-[#9C9C9C] font-audioWide uppercase flex flex-col gap-2 md:gap-4 justify-center items-center py-48">
-        <h3 className="text-md md:text-2xl">Welcome {session?.user.name}</h3>
+        <h3 className="text-md md:text-2xl">
+          Welcome {session ? session.user.name : "Guest"}
+        </h3>
         <h1 className="text-white text-2xl md:text-7xl tracking-wider">
           SpaceX
           <span className="text-[#00C2FF] ml-2 ">Spectacle</span>
@@ -33,7 +36,7 @@ export default function Home() {
         </div>
 
         <LaunchFilters />
-        <LaunchCards />
+        <LaunchList />
       </section>
     </main>
   );

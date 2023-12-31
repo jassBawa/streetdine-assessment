@@ -1,10 +1,19 @@
+import { openLaunchModal } from "@/lib/slices/launchModalSlice";
 import formatDate from "@/utils/date-formatters";
 import Image from "next/image";
 import React from "react";
+import { useDispatch } from "react-redux";
 
 const LaunchCard = ({ project }) => {
-  const { mission_name, details, launch_date_local, upcoming } = project;
+  const { mission_name, details, launch_date_local, upcoming, flight_number } =
+    project;
   const date = formatDate(launch_date_local);
+  const dispatch = useDispatch();
+
+  const handleModalOpen = () => {
+    dispatch(openLaunchModal(flight_number));
+  };
+
   return (
     <div className="card flex py-12 relative bg-[#151515] p-4 border-2 border-fuchsia-500 rounded-xl w-full max-w-4xl mx-auto">
       <div className="hidden md:block card__image -translate-x-24 bg-slate-50 h-52 w-full max-w-[15rem]    relative rounded overflow-hidden">
@@ -16,12 +25,12 @@ const LaunchCard = ({ project }) => {
         />
       </div>
       <div className="card__body md:-translate-x-12 font-gafata text-[#929292]">
-        <span className="card__date">
+        <div className="card__date">
           {date}
           <span className="ml-4 text-cyan-600">
             ({`${upcoming ? "Upcoming" : "Past"}`})
           </span>
-        </span>
+        </div>
         <p className="card__title text-white font-audioWide text-3xl mt-2">
           MISSION: {mission_name}
         </p>
@@ -30,7 +39,10 @@ const LaunchCard = ({ project }) => {
             ? details
             : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non amet, veritatis reprehenderit at eligendi quasi eum quaerat eveniet eos magni atque modi? Incidunt cupiditate veniam illum soluta beatae, omnis quos!"}
         </p>
-        <button className="rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 shadow-xl shadow-cyan-400/40 hover:shadow-cyan-400/60 text-white py-2 px-4">
+        <button
+          onClick={handleModalOpen}
+          className="rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 shadow-xl shadow-cyan-400/40 hover:shadow-cyan-400/60 text-white py-2 px-4"
+        >
           Read more!
         </button>
       </div>

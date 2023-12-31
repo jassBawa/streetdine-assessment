@@ -2,19 +2,20 @@
 
 import React from "react";
 import LaunchCard from "./LaunchCard";
-import useLaunches from "@/hooks/useLaunches";
+// import useLaunches from "@/hooks/useLaunches";
 import Loader from "../Loader";
 import { useSelector } from "react-redux";
 
-const LaunchCards = () => {
+const LaunchList = () => {
   const launches = useSelector((state) => state.launches);
 
   if (launches.loading) return <Loader />;
 
-  if (launches.data.length === 0)
+  if (launches.data.length === 0) {
     return (
       <div className="text-4xl text-center text-white">No launches to show</div>
     );
+  }
 
   return (
     <div className="cards flex flex-col gap-16 mt-8">
@@ -25,4 +26,4 @@ const LaunchCards = () => {
   );
 };
 
-export default LaunchCards;
+export default LaunchList;
