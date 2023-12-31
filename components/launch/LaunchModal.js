@@ -40,7 +40,7 @@ function LaunchModal() {
       {isModalOpen && (
         <div className="fixed transition-all z-50 top-0 left-0 w-full h-full flex items-center px-4 justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="flex items-stretch bg-[#101010]/90 max-w-3xl w-full rounded-lg overflow-hidden transition-all shadow-2xl backdrop-blur-xl">
-            <div className="card__image relative w-full ">
+            <div className="card__image relative w-full hidden md:block ">
               <Image
                 alt="Spaceship image"
                 fill
